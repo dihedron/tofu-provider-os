@@ -1,0 +1,22 @@
+_APPLICATION_NAME := tofu-provider-os
+_APPLICATION_DESCRIPTION := OpenTofu and Terraform provider for operating system resources.
+_APPLICATION_COPYRIGHT := 2025 © Andrea Funtò
+_APPLICATION_LICENSE := MIT
+_APPLICATION_LICENSE_URL := https://opensource.org/license/mit/
+# _APPLICATION_VERSION_MAJOR := 0
+# _APPLICATION_VERSION_MINOR := 1
+# _APPLICATION_VERSION_PATCH := 0
+# _APPLICATION_VERSION=$(_APPLICATION_VERSION_MAJOR).$(_APPLICATION_VERSION_MINOR).$(_APPLICATION_VERSION_PATCH)
+_APPLICATION_MAINTAINER=dihedron.dev@gmail.com
+_APPLICATION_VENDOR=dihedron.dev@gmail.com
+_APPLICATION_PRODUCER_URL=https://github.com/dihedron/
+_APPLICATION_DOWNLOAD_URL=$(_APPLICATION_PRODUCER_URL)$(_APPLICATION_NAME)
+_APPLICATION_METADATA_PACKAGE=$$(grep "module .*" go.mod | sed 's/module //gi')/metadata
+#_APPLICATION_DOTENV_VAR_NAME=
+
+
+include help.mk
+include piped.mk
+-include custom.mk
+
+include goreleaser.mk
