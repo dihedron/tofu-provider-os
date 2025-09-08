@@ -12,11 +12,12 @@ _APPLICATION_VENDOR=dihedron.dev@gmail.com
 _APPLICATION_PRODUCER_URL=https://github.com/dihedron/
 _APPLICATION_DOWNLOAD_URL=$(_APPLICATION_PRODUCER_URL)$(_APPLICATION_NAME)
 _APPLICATION_METADATA_PACKAGE=$$(grep "module .*" go.mod | sed 's/module //gi')/metadata
+_APPLICATION_PLUGIN_ADDRESS=github.com/dihedron/${_APPLICATION_NAME}
 #_APPLICATION_DOTENV_VAR_NAME=
-
 
 include help.mk
 include piped.mk
+include goreleaser.mk
 -include custom.mk
 
-include goreleaser.mk
+

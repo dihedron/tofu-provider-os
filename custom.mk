@@ -18,3 +18,7 @@ release: goreleaser-release ## build a release version (requires a valid tag)
 .PHONY: clean 
 clean: #clean the binary directory 
 	@rm -rf dist
+
+.PHONY: local-install
+local-install: #install the plugin locally
+	@mkdir -p ~/.opentofu.d/plugins/dihedron.org/edu/example/1.0.0/linux_amd64

@@ -32,9 +32,9 @@ builds:
       - amd64
       - arm64
     goamd64:
-#      - v1
-#      - v2
-      - v3
+      - v1
+      #- v2
+      #- v3
     tags:
       - osusergo
       - netgo
@@ -54,6 +54,7 @@ builds:
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.VersionPatch={{.Patch}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.Vendor={{.Env._GORELEASER_MK_VARS_VENDOR}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.Maintainer={{.Env._GORELEASER_MK_VARS_MAINTAINER}}' 
+      - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.PluginAddress={{.Env._GORELEASER_MK_VARS_PLUGIN_ADDRESS}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.DotEnvVarName={{.Env._GORELEASER_MK_VARS_DOTENV_VAR_NAME}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.BuildTime={{.Now}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.GitTag={{.Tag}}' 
@@ -61,6 +62,7 @@ builds:
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.GitTime={{.CommitDate}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.GitTreeState={{.GitTreeState}}' 
       - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.GitBranch={{.Branch}}'
+      - -X '{{.Env._GORELEASER_MK_VARS_METADATA_PACKAGE}}.GoReleaserVersion={{.Env._GORELEASER_VERSION}}'
     mod_timestamp: "{{ .CommitTimestamp }}"
 
 archives:

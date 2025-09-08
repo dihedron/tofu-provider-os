@@ -30,7 +30,7 @@ func main() {
 		metadata.PrintFull(os.Stdout)
 		os.Exit(0)
 	}
-	if err := providerserver.Serve(context.Background(), New, providerserver.ServeOpts{Address: "github.com/dihedron/tofu-provider-os"}); err != nil {
+	if err := providerserver.Serve(context.Background(), New, providerserver.ServeOpts{Address: metadata.PluginAddress}); err != nil {
 		slog.Error("error serving operating system provider", "error", err)
 		os.Exit(1)
 	}
