@@ -65,6 +65,8 @@ var (
 	GoReleaserVersion string
 	// DotEnvVarName is the name of the environment variable holding the name of the .env file for environment variables lookup.
 	DotEnvVarName string
+	// PluginAddress is the address of the OpenTofu/Terraform plugin.
+	PluginAddress = "<replace at link time with value from Makefile>"
 )
 
 func init() {
@@ -116,6 +118,9 @@ func PrintFull(writer io.Writer) {
 	fmt.Printf("  - Patch Version             : %s\n", VersionPatch)
 	fmt.Printf("  - Vendor                    : %s\n", Vendor)
 	fmt.Printf("  - Maintainer                : %s\n", Maintainer)
+	if PluginAddress != "" {
+		fmt.Printf("  - Plugin Address            : %s\n", PluginAddress)
+	}
 	fmt.Printf("  - Built on                  : %s\n", BuildTime)
 	fmt.Printf("  - GoReleaser Version        : %s\n", GoReleaserVersion)
 	fmt.Printf("  - Compiler                  : %s\n", GoVersion)
